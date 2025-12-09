@@ -1,0 +1,76 @@
+@use "helper";
+
+
+::-webkit-scrollbar {
+ width: 3px;
+ height: 8px;
+ border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+ background: #ffff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+ border-radius: 5px;
+ background: #000;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+ background: #181818;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Geist", sans-serif;
+  font-optical-sizing: auto;
+  color: #27272A;
+  letter-spacing: -0.5px;
+}
+
+a {
+  text-decoration: none;
+  transition: .3s;
+  display: inline-block;
+}
+
+.container {
+  max-width: 1720px !important;
+  margin: 0 auto;
+  @media (max-width: 1752px) {
+    padding: 0 16px;
+  }
+}
+
+//@media (max-width: 1024px) {
+//  html {
+//    font-size: 15px;
+//  }
+//}
+//
+//@media (max-width: 992px) {
+//  html {
+//    font-size: 14px;
+//  }
+//}
+//
+//@media (max-width: 576px) {
+//  html {
+//    font-size: 13px;
+//  }
+//}
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
