@@ -50,27 +50,161 @@ a {
 }
 
 main{
+  background: #FFF;
+box-shadow: 0 60px 94px 0 rgba(0, 0, 0, 0.15);
   padding-top: 97px;
+  width: calc(100% - 200px);
+  margin-left: 100px;
+  margin-bottom: 50px;
+  @media (max-width: 1400px) {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+   }
+  @media (max-width: 1024px) {
+    width: 100%;
+    margin-left: 0px;
+    margin-bottom: 0;
+   }
   @media (max-width: 767px) {
-    padding-top: 87px;
+    padding-top: 20px;
    }
 }
+
+h1{
+  font-family: "Russo One", sans-serif;
+}
+
+.car-img{
+  width: 600px;
+  position: absolute;
+  bottom: -50px;
+  right: 230px;
+  z-index: 1;
+  @media (max-width: 1024px) {
+    width: 63vw;
+   }
+  @media (max-width: 767px) {
+    width: 360px;
+    left: -100px;
+    bottom: 60px;
+   }
+}
+
+.radio-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.radio-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: #F5F5F5;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.radio-card input {
+  display: none;
+}
+
+
+.radio-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #FA8604; 
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+
+.radio-circle::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #FA8604;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+
+.radio-card input:checked + .radio-circle::after {
+  opacity: 1;
+}
+
+.radio-text {
+  font-size: 14px;
+  color: #1f2937;
+}
+
+.circle-img{
+  position: absolute;
+  top: 70px;
+  left: 44%;
+  z-index: 1;
+  transform: translateX(-50%);
+  width: 700px;
+  @media (max-width: 1024px) {
+    width: 65vw;
+    left: 42%;
+    top: 10vw;
+   }
+  @media (max-width: 767px) {
+    width: 380px;
+    left: 0;
+    top: 20vw;
+   }
+}
+
+.style-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+}
+
 
 .header-menu{
   transition: .3s;
 }
+
+.container-full{
+  max-width: 1380px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  #header{
+    max-width: 1380px;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 .header-menu.open{
   transform: scale(1);
+  border-top: 1px solid #222;
   opacity: 1;
+  a{
+    color: #000;
+  }
 }
 
 .fix{
   background: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   ul li a, .logo-text{
-    color: #FA8604;
+
     @media (max-width: 767px) {
-      color: white;
+      color: #222;
      }
   }
   @media (max-width: 767px) {
@@ -104,6 +238,11 @@ main{
     bottom: -5px;
     left: 0;
     position: absolute;
+  }
+  &.none{
+    &:after{
+      content: none;
+    }
   }
 }
 
