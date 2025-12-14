@@ -151,3 +151,35 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 });
+
+
+const car = document.querySelector('.car-img');
+
+const carObserver = new IntersectionObserver(
+  ([entry]) => {
+    if (!entry.isIntersecting) return;
+    car.classList.add('animate');
+    carObserver.disconnect();
+  },
+  { threshold: 0.4 }
+);
+
+carObserver.observe(car);
+
+const car2 = document.querySelector('.car2');
+
+if (car2) {
+  const carObserver = new IntersectionObserver(
+    ([entry], obs) => {
+      if (!entry.isIntersecting) return;
+
+      car2.classList.add('animate');
+      obs.unobserve(car2);
+    },
+    {
+      threshold: 0.4, // когда 40% элемента в зоне видимости
+    }
+  );
+
+  carObserver.observe(car2);
+}

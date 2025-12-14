@@ -49,21 +49,33 @@ a {
   display: inline-block;
 }
 
+@keyframes circleZoom {
+  0% {
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
 main{
   background: #FFF;
-box-shadow: 0 60px 94px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 60px 94px 0 rgba(0, 0, 0, 0.15);
   padding-top: 97px;
-  width: calc(100% - 200px);
-  margin-left: 100px;
-  margin-bottom: 50px;
-  @media (max-width: 1400px) {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-   }
-  @media (max-width: 1024px) {
-    width: 100%;
-    margin-left: 0px;
+  width: 100%;
+  max-width: 1290px;
+  margin: 0 auto 50px;
+  padding-left: 70px;
+  padding-right: 70px;
+  @media (max-width: 1300px) {
     margin-bottom: 0;
+    padding-left: 15px;
+    padding-right: 15px;
    }
   @media (max-width: 767px) {
     padding-top: 20px;
@@ -80,6 +92,17 @@ h1{
   bottom: -50px;
   right: 230px;
   z-index: 1;
+  width: min(600px, 90vw);
+
+  transform: translateX(-100px);
+  opacity: 0;
+
+  transition:
+    transform 1s ease-out,
+    opacity .6s ease;
+
+  transition-delay: 1s; /* ⏱ задержка 2 секунды */
+  will-change: transform;
   @media (max-width: 1024px) {
     width: 63vw;
    }
@@ -89,6 +112,12 @@ h1{
     bottom: 60px;
    }
 }
+
+.car-img.animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
 
 .radio-group {
   width: 100%;
@@ -151,6 +180,11 @@ h1{
   z-index: 1;
   transform: translateX(-50%);
   width: 700px;
+  width: min(700px, 90vw);
+  transform: translateX(-50%) scale(0);
+  transform-origin: center center;
+
+  animation: circleZoom 1.2s ease-out forwards;
   @media (max-width: 1024px) {
     width: 65vw;
     left: 42%;
@@ -165,12 +199,21 @@ h1{
 
 .style-img{
   position: absolute;
-  top: 0;
+  top: -50px;
   left: 0;
   width: 100%;
 
 }
 
+.car2 {
+  transform: translateX(150px);
+  opacity: 0;
+  transition: 1s;
+}
+.car2.animate {
+  transform: translateX(0);
+  opacity: 1;
+}
 
 .header-menu{
   transition: .3s;
@@ -187,6 +230,12 @@ h1{
     margin: 0 auto;
     padding-left: 15px;
     padding-right: 15px;
+    .container{
+      max-width: 1290px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
   }
 }
 .header-menu.open{
@@ -216,11 +265,10 @@ h1{
 }
 
 .container {
-  max-width: 1200px !important;
+  max-width: 1290px !important;
   margin: 0 auto;
-  @media (max-width: 1752px) {
-    padding: 0 16px;
-  }
+  width: 100%;
+  padding: 0 15px;
 }
 
 .global-title{
